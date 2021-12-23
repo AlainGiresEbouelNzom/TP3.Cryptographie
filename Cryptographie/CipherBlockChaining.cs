@@ -7,17 +7,33 @@ using System.Threading.Tasks;
 namespace Cryptographie
 {
     public class CipherBlockChaining
-    {       
+    {   
+        public string Chiffrer(string message, string cle)
+        {
+            int[] dimensions = GetDimensions(cle);
 
-        ASCIIEncoding Encoding = new ASCIIEncoding();
+            int line = dimensions[0];
+            int col = dimensions[1];
 
-        string Chiffrer(string message, string cle)
+            byte[] byteArray = new byte[line * col];
+
+            /*Not implemented*/
+
+            return new ASCIIEncoding().GetString(byteArray);
+        }
+
+        public string Dechiffrer(string message, string cle)
         {
             throw new NotImplementedException();
         }
-        string Dechiffrer(string message, string cle)
+
+        private int [] GetDimensions( string cle)
         {
-            throw new NotImplementedException();
+            int[] dimensions = new int[2];
+
+            /*Not implemented*/
+
+            return dimensions;
         }
 
 
