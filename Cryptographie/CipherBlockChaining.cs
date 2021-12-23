@@ -35,7 +35,7 @@ namespace Cryptographie
             }
            
             byteArray2 = Transposition(splitedKey, byteArray2, true);
-
+           
             byteArray1 =  XOR_Chiffrer(byteArray2);     
             
 
@@ -55,9 +55,7 @@ namespace Cryptographie
 
             byte[] byteArray1 = new ASCIIEncoding().GetBytes(message);
 
-            foreach (var v in byteArray1)
-                Console.Write(v + " ");
-            Console.WriteLine();
+           
 
 
             byteArray1 =  XOR_Dechiffrer(byteArray1);
@@ -74,7 +72,7 @@ namespace Cryptographie
                         break;
                 }
             }
-
+            
             byteArray2 = Transposition(splitedKey, byteArray2, false);
 
             string s = "";
@@ -108,13 +106,13 @@ namespace Cryptographie
 
         private byte[,] Transposition(string []keys, byte [,] byteArray, bool vector)
         {
-            
             byte[,] transposedArray = new byte[byteArray.GetLength(0), byteArray.GetLength(1)];
 
             int col;
             for (int k = 0; k < keys.Length; k++)
             {
                 col = int.Parse(keys[k]) - 1;
+                
 
                 if (vector)
                 {
@@ -131,7 +129,7 @@ namespace Cryptographie
                     }
                 }
             }
-
+           
             return transposedArray;
         }
 
@@ -171,28 +169,24 @@ namespace Cryptographie
             {                
                 if (i == 0)
                 {
-                    XOR_Array[counter++] = (byte)(previous ^ VI);
-                    
-
+                    XOR_Array[counter++] = (byte)(previous ^ VI);   
                 }
                 else
-                {
-                    
+                {                    
                     XOR_Array[counter++] = ((byte)(byteArray[i] ^ previous));
                     previous = byteArray[i];
-                }
-                
-            }
-           
+                }                
+            }           
 
             return XOR_Array;
         }
 
-
-
-
-
-
+        public void ConsoleReset()
+        {
+            Console.WriteLine("\nAppuyez sur n'importe quelle touche pour continuer\n");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }
 
