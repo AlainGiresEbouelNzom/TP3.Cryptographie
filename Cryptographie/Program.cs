@@ -7,27 +7,27 @@ namespace Cryptographie
     {
         static void Main(string[] args)
         {
-            string a = "c'est bon";
 
-            //byte [] b = { ((byte)a) };
+            CipherBlockChaining CBC = new CipherBlockChaining();
 
-            byte b1 = 110;
-            byte b2 = 124;
 
-            int bb = b1 ^ b2;
+            string SE = CBC.Chiffrer("bonjour la maisonnée", "1 2");
+            string t = "♠im☻w♣%Ie♦m▲q▼rM(";
+            Console.WriteLine(SE); 
+           // Console.WriteLine(t); 
           
 
-            byte[] bn = new ASCIIEncoding().GetBytes(a);
+             // new CipherBlockChaining().Chiffrer("bonjour c'est bon. Les mathematiques sont tres sucrees", "3 1 2 4");
 
-            string str = new ASCIIEncoding().GetString(bn);
+            Console.WriteLine(CBC.Dechiffrer(t,"1 2"));
 
-           // int c = b ^ vi;
-
-            //char final = ((char)c);
+             //te []B = new ASCIIEncoding().GetBytes(t);
 
 
+           
 
-            Console.Write(str);
+            Console.WriteLine();
+
         }
     }
 }
